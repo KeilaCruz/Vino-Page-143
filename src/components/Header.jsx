@@ -4,7 +4,7 @@ function Header() {
     return (
         <>
             <header>
-                <a className="a-logo" href="Home"><h1>Mi Aplicación</h1></a>
+                <a className="a-logo" href="/"><h1>Mi Aplicación</h1></a>
                 <nav>
                     <ul>
                         <li><a className="a-menu" href="#products">Productos</a></li>

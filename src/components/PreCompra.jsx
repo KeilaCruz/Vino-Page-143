@@ -10,7 +10,7 @@ function PreCompra({ nombreproducto, precio }) {
                     <p>$ {precio}</p>
                     <input type='number' placeholder='Cantidad' min="1" max="1000000" defaultValue="1"/>
                     <button>Agregar carrito</button>
-                    <a href='/detalle-compra'>Realizar compra</a>
+                    <a href='/formCompra'>Comprar ahora</a>
                 </div>
             </div>
         </>

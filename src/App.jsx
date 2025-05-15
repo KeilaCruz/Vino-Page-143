@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/compra' element={<PreCompra nombreproducto='Licor de Uva' precio='234.24' />} />
-        <Route path='/detalle-compra' element={<FormCompra />} />
+        <Route path='/preCompra' element={<PreCompra nombreproducto='Licor de Uva' precio='234.24' />} />
+        <Route path='/formCompra' element={<FormCompra />} />
       </Routes>
     </>
   )

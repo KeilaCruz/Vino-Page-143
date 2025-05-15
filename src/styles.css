@@ -89,21 +89,22 @@ nav a:hover {
     margin: 0;
 }
 
-.card-info button{
+.card-info button {
     width: 100px;
     height: 30px;
 }
 
-.precompra{
+.precompra {
     display: flex;
     width: 90%;
-    background:#e1f8e7;  
+    background: #e1f8e7;
 }
 
-.precompra img{
+.precompra img {
     width: 40%;
 }
-.precompra__info{
+
+.precompra__info {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -111,28 +112,30 @@ nav a:hover {
     padding: 20px;
 }
 
-.precompra__info h2{
+.precompra__info h2 {
     font-family: 'Open Sans', sans-serif;
     font-size: 40px;
     margin: 0 0 7px 0;
 }
-.precompra__info p{
+
+.precompra__info p {
     font-family: 'open sans', sans-serif;
     font-size: 20px;
     margin: 0 0 10px 0;
 }
 
-.precompra__info input{
-    width: 100px;       
+.precompra__info input {
+    width: 100px;
     height: 30px;
 }
-.precompra__info a{
+
+.precompra__info a {
     text-decoration: none;
     color: #000000;
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     margin-top: 10px;
-    transition: color 0.5s ease;    
+    transition: color 0.5s ease;
     background: #1cef55;
     padding: 5px 10px;
     border-radius: 5px;
@@ -142,4 +145,52 @@ nav a:hover {
     width: 50%;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container__formCompra {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container__formCompra h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.container__formCompra input,
+.container__formCompra select {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.grip__form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.container__formCompra a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    background: #1cef55;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #000000;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    margin: 1rem 0;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);       
 }

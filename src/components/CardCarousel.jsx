@@ -10,7 +10,7 @@ function CardCarousel({ title, description, image }) {
                 <div className='card-info'>
                     <h2>{title}</h2>
                     <p>{description}</p>
-                    <button>Ver más</button>
+                    <a href="#">Ver más</a>
                 </div>
             </div>
         </>

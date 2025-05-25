@@ -44,7 +44,7 @@ function Header() {
                                 </div>
                             )}
                         </li>
-                        <li><a href="#car" title="Carrito"><FontAwesomeIcon icon={faCartShopping} className="icon-menu" /></a></li>
+                        <li><a href="/carrito" title="Carrito"><FontAwesomeIcon icon={faCartShopping} className="icon-menu" /></a></li>
                     </ul>
                 </nav>
             </header>

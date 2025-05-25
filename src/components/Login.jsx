@@ -12,7 +12,6 @@ function Login() {
             console.error("Error al iniciar sesión:", error.message)
             return
         } else {
-            console.log("Usuario logueado:", data)
             navigate("/")
         }
     }

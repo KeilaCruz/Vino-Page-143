@@ -1,9 +1,16 @@
 import React from 'react'
 import { useCart } from '../Auth/CartProvider'
-
+import { useNavigate } from 'react-router-dom';
 function CartPage() {
     const { cartItems, removeFromCart, updateItemQuantity, calculateTotal, clearCart } = useCart();
-
+    const navigate = useNavigate();
+    const handleCheckout = () => {
+        if (cartItems.length === 0) {
+            alert("Tu carrito está vacío. Por favor, añade productos antes de proceder al pago.");
+            return;
+        }
+        navigate('/formCompra');
+    };
     return (
         <div>
             <h1>Tu Carrito de Compras</h1>
@@ -42,9 +49,7 @@ function CartPage() {
                                         </button>
                                     </div>
                                 </td>
-                                {/* MUY IMPORTANTE: Antes de llamar a toFixed, verifica que item.price exista y conviértelo a número */}
                                 <td>${item.price ? Number(item.price).toFixed(2) : 'N/A'}</td>
-                                {/* MUY IMPORTANTE: Antes de multiplicar, verifica que item.price y item.quantity existan y sean números */}
                                 <td>${(item.price && item.quantity) ? (Number(item.price) * Number(item.quantity)).toFixed(2) : 'N/A'}</td>
                                 <td>
                                     <button
@@ -66,7 +71,7 @@ function CartPage() {
 
             <div>
                 <button
-                    onClick={() => alert('¡Procediendo al pago!')}
+                    onClick={handleCheckout}
                 >
                     Proceder al Pago
                 </button>

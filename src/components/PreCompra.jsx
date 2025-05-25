@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getVino } from '../backend/services'
-import { useCart } from '../Auth/CartProvider'
+import { getVino } from '../backend/services';
+import { useCart } from '../Auth/CartProvider';
 
 function PreCompra() {
     const { idVino } = useParams();
@@ -45,13 +45,12 @@ function PreCompra() {
 
             const itemForCart = {
                 id: vino.idVino,
-                // Aseguramos que el nombre sea un string, con un fallback si no existe
-                name: vino.info_vino?.nombre || `Vino ID: ${vino.idVino}`,
-                // MUY IMPORTANTE: Aseguramos que el precio sea un número válido.
-                // Si vino.info_vino?.precio es undefined, null o no es un número, se usará 0.
+                idVino: vino.idVino,
+                nombre: vino.info_vino?.nombre || `Vino ID: ${vino.idVino}`,
                 price: Number(vino.info_vino?.precio) || 0,
                 quantity: quantity,
             };
+
             addToCart(itemForCart);
             navigate('/carrito');
         }

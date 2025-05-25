@@ -53,3 +53,39 @@ export const getVino = async (id) => {
         return data;
     }
 }
+export const insertVenta = async (
+    p_id_cliente,
+    p_nombre,
+    p_rfc,
+    p_nombre_empresa,
+    p_direccion,
+    p_apartamento,
+    p_codigo_postal,
+    p_ciudad,
+    p_estado,
+    p_numero_tarjeta,
+    p_total,
+    p_detalles
+) => {
+    const { data, error } = await supabase.rpc("insert_venta", {
+        p_id_cliente: p_id_cliente,
+        p_nombre: p_nombre,
+        p_rfc: p_rfc,
+        p_nombre_empresa: p_nombre_empresa,
+        p_direccion: p_direccion,
+        p_apartamento: p_apartamento,
+        p_codigo_postal: p_codigo_postal,
+        p_ciudad: p_ciudad,
+        p_estado: p_estado,
+        p_numero_tarjeta: p_numero_tarjeta,
+        p_total: p_total,
+        p_detalles: p_detalles
+    });
+
+    if (error) {
+        console.error("Error al insertar venta (desde services.js):", error.message);
+        return { data: null, error: error };
+    } else {
+        return { data: data, error: null };
+    }
+};

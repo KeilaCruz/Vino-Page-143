@@ -27,7 +27,6 @@ export function CartProvider({ children }) {
         try {
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
         } catch (error) {
-            // Manejar errores de guardado si es necesario (ej. cuota de almacenamiento excedida)
         }
     }, [cartItems]);
 

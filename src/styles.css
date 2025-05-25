@@ -80,15 +80,19 @@ nav a:hover {
 
 .container-image {
     width: 50%;
+    height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ccc;
 }
 
 .container-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .card-info {
@@ -118,6 +122,7 @@ nav a:hover {
     height: 30px;
 }
 
+/*Estilos de precompra*/
 .precompra {
     display: flex;
     width: 90%;
@@ -171,6 +176,7 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/*Estilos de formulario de compra*/
 .container__formCompra {
     max-width: 800px;
     margin: 0 auto;
@@ -219,6 +225,7 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/*Estilos de vinos*/
 .vinos__title {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 2rem;
@@ -262,9 +269,15 @@ nav a:hover {
 .vino__card img {
     width: 100%;
     height: 400px;
-    overflow: cover;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+.vino__card:hover img {
+    transform: scale(1.05);
+}
+
+/*Estilos de procedimiento*/
 .procedimiento__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -274,18 +287,20 @@ nav a:hover {
     padding: 20px 0;
 }
 
-.procedimiento__container h2{
+.procedimiento__container h2 {
     font-family: "Merriweather Sans", sans-serif;
     font-size: 1.3rem;
 }
-.procedimiento__container p{
+
+.procedimiento__container p {
     font-family: "Inter", sans-serif;
     font-size: 1rem;
 }
-.procedimiento__card{
+
+.procedimiento__card {
     background: #f3f4f3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 2px; 
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -293,9 +308,182 @@ nav a:hover {
     height: 200px;
     margin: 0 auto;
 }
+
 .procedimiento__title {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 2.5rem;
     text-align: center;
     margin: 10px 0;
+}
+
+/*Estilos de factores*/
+.factores__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 1220px;
+    gap: 70px;
+    margin: 10px auto;
+}
+
+.factores__title {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.factores__container h2 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 1.3rem;
+}
+
+.factores__container p {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}
+
+.factores__card {
+    background: #f3f4f3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+/*Spinner animation*/
+.loading-center-container p {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.lds-ring,
+.lds-ring div {
+    box-sizing: border-box;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid currentColor;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: currentColor transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-center-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-size: 1.5em;
+    gap: 20px;
+    text-align: center;
+}
+
+.lds-ring {
+    color: #007bff;
+}
+
+
+.user-menu-item {
+    position: relative;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.user-dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    min-width: 180px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dropdown-email-display {
+    color: #eee;
+    font-size: 0.9em;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-logout-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-logout-button:hover {
+    background-color: #c0392b;
+}
+
+.icon-button-margin {
+    margin-right: 8px;
 }

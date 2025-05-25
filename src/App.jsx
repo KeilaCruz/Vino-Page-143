@@ -6,6 +6,8 @@ import './styles.css'
 import Header from './components/Header'
 import FormCompra from './components/FormCompra'
 import VinosPages from './pages/VinosPages'
+import Registro from './components/Registro'
+import Login from './components/Login'
 function App() {
 
   return (
@@ -13,9 +15,11 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/preCompra' element={<PreCompra nombreproducto='Licor de Uva' precio='234.24' />} />
         <Route path='/formCompra' element={<FormCompra />} />
         <Route path='/vinos' element={<VinosPages />} />
+        <Route path='/registro' element={<Registro />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/preCompra/:idVino' element={<PreCompra />} />
       </Routes>
     </>
   )

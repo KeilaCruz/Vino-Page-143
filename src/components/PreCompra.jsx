@@ -52,6 +52,7 @@ function PreCompra() {
 
             const itemForCart = {
                 id: vino.idVino,
+                idVino: vino.idVino,
                 nombre: vino.info_vino?.nombre || `Vino ID: ${vino.idVino}`,
                 price: Number(vino.info_vino?.precio) || 0,
                 quantity: quantity,

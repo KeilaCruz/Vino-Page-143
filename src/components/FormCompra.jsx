@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../Auth/AuthProvider";
 import { useCart } from "../Auth/CartProvider";
 import { insertVenta } from "../backend/services";
-
+import logo from "../assets/logo.png";
 const estadosMexico = [
     "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas",
     "Chihuahua", "Ciudad de México", "Coahuila", "Colima", "Durango", "Estado de México",
@@ -11,16 +11,14 @@ const estadosMexico = [
     "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"
 ];
 
-// Datos Fijos de la Empresa (Cosecha Joven)
 const COMPANY_DETAILS = {
     name: "Cosecha Joven S.A. de C.V.",
     rfc: "COJ210915XY1",
     address: "Hidalgo, Coatzacoalcos Centro, Coatzacoalcos",
     slogan: "Vinos Naturales de Uva Morada",
-    // Puedes añadir más detalles si lo necesitas
 };
 
-const IVA_RATE = 0.16; // 16% de IVA en México
+const IVA_RATE = 0.16;
 
 function FormCompra() {
     const { user } = useAuth();
@@ -69,11 +67,11 @@ function FormCompra() {
         e.preventDefault();
 
         if (!user) {
-            alert("Debes estar autenticado para realizar una compra");
+            setError("Debes estar autenticado para realizar una compra.");
             return;
         }
         if (cartItems.length === 0) {
-            alert("No hay productos en el carrito");
+            setError("No hay productos en el carrito. Por favor, añade productos antes de proceder.");
             return;
         }
 
@@ -88,14 +86,13 @@ function FormCompra() {
                 nombre: item.nombre,
                 cantidad: item.quantity,
                 subtotal: (Number(item.price) || 0) * (Number(item.quantity) || 0),
-                precioUnitario: (Number(item.price) || 0), // Añadir precio unitario para la factura
+                precioUnitario: (Number(item.price) || 0),
                 idVino: item.idVino
             }));
 
             const subtotalSinIVA = detallesParaDB.reduce((acc, detail) => acc + detail.subtotal, 0);
             const ivaCalculado = subtotalSinIVA * IVA_RATE;
             const totalConIVA = subtotalSinIVA + ivaCalculado;
-
 
             console.log("Datos a enviar a insertVenta:", {
                 p_id_cliente: user.id,
@@ -108,10 +105,9 @@ function FormCompra() {
                 p_ciudad: formData.ciudad,
                 p_estado: formData.estado,
                 p_numero_tarjeta: formData.numero_tarjeta,
-                p_total: totalConIVA, // Pasar el total con IVA a la DB
+                p_total: totalConIVA,
                 p_detalles: detallesParaDB
             });
-
 
             const { data, error: apiError } = await insertVenta(
                 user.id,
@@ -124,7 +120,7 @@ function FormCompra() {
                 formData.ciudad,
                 formData.estado,
                 formData.numero_tarjeta,
-                totalConIVA, // Usar el total con IVA
+                totalConIVA,
                 detallesParaDB
             );
 
@@ -135,7 +131,6 @@ function FormCompra() {
                 setError(`Error al procesar la compra: ${apiError.message}`);
             } else {
                 setSuccess(true);
-                // Asegúrate de que 'data' contenga idVenta y created_at
                 setVentaRealizada(data);
                 setDetallesVentaParaFactura(detallesParaDB);
                 console.log("Venta realizada con éxito. Datos de la venta:", data);
@@ -163,21 +158,23 @@ function FormCompra() {
             const { default: html2canvas } = await import('html2canvas');
             const { jsPDF } = await import('jspdf');
 
-            const input = invoiceContentRef.current;
-            const canvas = await html2canvas(input, { scale: 2 });
+            const input = invoiceContentRef.current; // Elemento HTML a convertir
+            const canvas = await html2canvas(input, { scale: 2 }); // Generar canvas desde HTML
 
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgData = canvas.toDataURL('image/png'); // Convertir canvas a imagen base64
+            const pdf = new jsPDF('p', 'mm', 'a4'); // Crear un nuevo documento PDF (A4)
 
-            const imgWidth = 210;
-            const pageHeight = 297;
-            const imgHeight = canvas.height * imgWidth / canvas.width;
-            let heightLeft = imgHeight;
-            let position = 0;
+            const imgWidth = 210; // Ancho de la imagen en mm (A4)
+            const pageHeight = 297; // Altura de la página en mm (A4)
+            const imgHeight = canvas.height * imgWidth / canvas.width; // Calcular altura proporcional de la imagen
+            let heightLeft = imgHeight; // Altura restante de la imagen a renderizar
+            let position = 0; // Posición vertical en el PDF
 
+            // Añadir la primera página
             pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
             heightLeft -= pageHeight;
 
+            // Añadir páginas adicionales si la imagen es más larga que una página
             while (heightLeft >= 0) {
                 position = heightLeft - imgHeight;
                 pdf.addPage();
@@ -185,6 +182,7 @@ function FormCompra() {
                 heightLeft -= pageHeight;
             }
 
+            // Guardar el PDF
             pdf.save(`factura_${ventaRealizada.idVenta}.pdf`);
         } catch (err) {
             console.error("Error al generar el PDF:", err);
@@ -196,12 +194,10 @@ function FormCompra() {
 
     const isSubmitDisabled = loading || cartItems.length === 0;
 
-    // Calcular totales para la factura
     const subtotalParaFactura = detallesVentaParaFactura.reduce((acc, item) => acc + item.subtotal, 0);
     const ivaParaFactura = subtotalParaFactura * IVA_RATE;
     const totalParaFactura = subtotalParaFactura + ivaParaFactura;
 
-    // Función para convertir número a letras (placeholder, puedes buscar una librería o implementar una más robusta)
     const numeroALetras = (numero) => {
         if (isNaN(numero)) return "";
         const units = ["", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
@@ -224,16 +220,17 @@ function FormCompra() {
             if (numStr.substring(1) !== '00') result += " " + numeroALetras(parseInt(numStr.substring(1)));
             return result;
         }
-        // Para números más grandes, necesitarías una librería o una implementación más compleja.
-        // Esto es solo un ejemplo muy básico.
-        return numero.toFixed(2); // Retornar el número si es demasiado grande para esta función simple
+        return numero.toFixed(2);
     };
 
     const cantidadConLetra = `${numeroALetras(Math.floor(totalParaFactura))} pesos ${((totalParaFactura % 1) * 100).toFixed(0)}/100 M.N.`;
 
 
     return (
-        <>
+        <div className="form-page-layout">
+            <img src={logo} alt="Cosecha Joven Logo" className="form-logo" />
+
+
             <form className="container__formCompra" onSubmit={handleSubmit}>
                 <h3>Datos del envío</h3>
                 <div className="grip__form">
@@ -263,6 +260,7 @@ function FormCompra() {
                     </select>
                     <input id='telefono' type="text" placeholder="Número telefónico" value={formData.telefono} onChange={handleInputChange} />
                 </div>
+
                 <h3>Datos de pago</h3>
                 <div className="grip__form">
                     <input id='nombre_titular' type="text" placeholder="Nombre del titular" value={formData.nombre_titular} onChange={handleInputChange} required />
@@ -270,8 +268,9 @@ function FormCompra() {
                     <input id='fecha_vencimiento' type="text" placeholder="Fecha de vencimiento (MM/AA)" value={formData.fecha_vencimiento} onChange={handleInputChange} required />
                     <input id='cvv' type="text" placeholder="CVV" value={formData.cvv} onChange={handleInputChange} required />
                 </div>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>¡Compra realizada con éxito!</p>}
+
+                {error && <p className="message-error">{error}</p>}
+                {success && <p className="message-success">¡Compra realizada con éxito!</p>}
 
                 <button type="submit" disabled={isSubmitDisabled} className="btn__comprar">
                     {loading ? 'Procesando...' : (cartItems.length === 0 ? 'Carrito Vacío' : 'Pagar ahora')}
@@ -284,14 +283,13 @@ function FormCompra() {
                 )}
             </form>
 
-            {/* Contenido de la factura oculto para html2canvas */}
             {success && ventaRealizada && (
                 <div ref={invoiceContentRef} style={{
                     position: 'absolute',
-                    left: '-9999px',
+                    left: '-9999px', // Mueve el elemento fuera de la vista
                     top: '-9999px',
-                    width: '210mm', // A4 width
-                    minHeight: '297mm', // A4 height
+                    width: '210mm', // Ancho A4
+                    minHeight: '297mm', // Altura A4
                     padding: '20mm',
                     backgroundColor: '#fff',
                     color: '#333',
@@ -316,7 +314,6 @@ function FormCompra() {
                             <p style={{ margin: '0 0 5px 0' }}><strong>Factura No.:</strong> CJ-001257</p>
                             <p style={{ margin: '0' }}><strong>Fecha de Emisión:</strong> {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                             {/* Puedes usar ventaRealizada.created_at si quieres la fecha de la venta */}
-                            {/* <p style={{ margin: '0' }}><strong>Fecha de Emisión:</strong> {new Date(ventaRealizada.created_at).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p> */}
                         </div>
                     </div>
 
@@ -382,7 +379,7 @@ function FormCompra() {
                     </p>
                 </div>
             )}
-        </>
+        </div>
     );
 }
 

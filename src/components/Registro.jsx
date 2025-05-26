@@ -19,23 +19,28 @@ function Registro() {
     }
     return (
         <>
-            <div>
-                <form onSubmit={handleRegistro}>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+            <div className='registro__container'>
+                <h2>Crear cuenta</h2>
+                <form onSubmit={handleRegistro} className='registro__form'>
+                    <label>Correo electrónico
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </label>
+                    <label>Contraseña
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
                     <button type="submit">Registrar</button>
                 </form>
-            </div>
+            </div >
         </>
     )
 }

@@ -5,6 +5,7 @@ import { useAuth } from "../Auth/AuthProvider";
 import { logoutUsuario } from "../backend/services";
 import { useState } from "react";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import logo from "../assets/logo.png";
 function Header() {
     const { user, loading } = useAuth();
     console.log("User in Header:", user);
@@ -20,7 +21,7 @@ function Header() {
     return (
         <>
             <header>
-                <a className="a-logo" href="/"><h1>Cosecha Joven</h1></a>
+                <a className="a-logo" href="/"><img src={logo} alt="Cosecha Joven" />Cosecha joven</a>
                 <nav>
                     <ul>
                         <li><a href="/vinos" title="Vinos"><FontAwesomeIcon icon={faWineBottle} className="icon-menu" /></a></li>
@@ -29,7 +30,7 @@ function Header() {
                             onMouseEnter={() => { if (user) setIsUserDropdownOpen(true); }}
                             onMouseLeave={() => setIsUserDropdownOpen(false)}
                         >
-                            <a href="/login" title="Contacto">
+                            <a href="/login" title="Cuenta">
                                 <FontAwesomeIcon icon={faUser} className="icon-menu" />
                                 {user ? (user.user_metadata?.display_name || user.email) : ''}
                             </a>

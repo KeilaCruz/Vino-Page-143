@@ -17,23 +17,29 @@ function Login() {
     }
     return (
         <>
-            <div>
-                <form onSubmit={handleLogin}>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+            <div className='registro__container'>
+                <h2>Iniciar sesión</h2>
+                <form onSubmit={handleLogin} className='registro__form'>
+                    <label>Correo electrónico
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </label>
+                    <label>Contraseña
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
                     <button type="submit">Iniciar sesión</button>
                 </form>
-            </div>
+                <p>¿No tienes cuenta? <a href="/registro">Regístrate</a></p>
+            </div >
         </>
     )
 }

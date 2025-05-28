@@ -232,7 +232,7 @@ function FormCompra() {
 
 
             <form className="container__formCompra" onSubmit={handleSubmit}>
-                <h3>Datos del envío</h3>
+                <h2>Datos del envío</h2>
                 <div className="grip__form">
                     <input
                         style={{ gridColumn: "span 2" }}
@@ -261,7 +261,7 @@ function FormCompra() {
                     <input id='telefono' type="text" placeholder="Número telefónico" value={formData.telefono} onChange={handleInputChange} />
                 </div>
 
-                <h3>Datos de pago</h3>
+                <h2>Datos de pago</h2>
                 <div className="grip__form">
                     <input id='nombre_titular' type="text" placeholder="Nombre del titular" value={formData.nombre_titular} onChange={handleInputChange} required />
                     <input id='numero_tarjeta' type="text" placeholder="Número de tarjeta" value={formData.numero_tarjeta} onChange={handleInputChange} required />

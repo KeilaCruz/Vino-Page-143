@@ -69,8 +69,11 @@ function PreCompra() {
 
     if (loading) {
         return (
-            <div className="precompra-status">
-                <p>Cargando información del vino...</p>
+            <div className="loading-center-container">
+                <p>Cosecha joven</p>
+                <div className="lds-ring">
+                    <div></div><div></div><div></div><div></div>
+                </div>
             </div>
         );
     }
@@ -122,7 +125,7 @@ function PreCompra() {
 
                 <div className="action-buttons">
                     <button onClick={handleAddToCart}>Agregar carrito</button>
-                    <a href='/formCompra'>Comprar ahora</a>
+                    <button onClick={() => navigate('/formCompra')}>Comprar ahora</button>
                 </div>
             </div>
         </div>

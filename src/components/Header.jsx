@@ -21,7 +21,7 @@ function Header() {
     return (
         <>
             <header>
-                <a className="a-logo" href="/"><img src={logo} alt="Cosecha Joven" />Cosecha joven</a>
+                <a className="a-logo" href="/"><img src={logo} alt="Cosecha Joven" />COSECHA JOVEN</a>
                 <nav>
                     <ul>
                         <li><a href="/vinos" title="Vinos"><FontAwesomeIcon icon={faWineBottle} className="icon-menu" /></a></li>

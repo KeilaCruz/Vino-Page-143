@@ -1,6 +1,7 @@
 /*font*/
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Inter:wght@400;500;700&display=swap');
 
+
 /* Reset básico */
 * {
     margin: 0;
@@ -61,7 +62,7 @@
 .registro__form input[type="email"]:focus,
 .registro__form input[type="password"]:focus {
     border-color: #6e6e6e;
-    box-shadow: 0 0 8px rgba(228, 77, 38, 0.6);
+    box-shadow: 0 0 8px #D95585;
     outline: none;
     background-color: rgba(255, 255, 255, 0.15);
 }
@@ -82,7 +83,7 @@
 }
 
 .registro__form button[type="submit"]:hover {
-    background-color: #961217;
+    background-color: #D95585;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
@@ -108,22 +109,47 @@ a {
     }
 }
 
-/*Estilos header*/
+/* Estilos del footer */
+.footer__container {
+    display: flex;
+    background-color: #030102;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(89, 71, 83, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__container h2 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 1.5rem;
+    color: #FECFDC;
+    margin: 0;
+}
+
+/*Estilos del header*/
 header {
     display: flex;
-    background-color: #000000;
-    color: white;
-    padding: 0 30px;
+    background-color: #030102;
+    padding: 0 20px;
     align-items: center;
     z-index: 1000;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(89, 71, 83, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
@@ -145,42 +171,43 @@ li {
 
 .a-logo {
     font-size: 1.5rem;
-    margin-right: 30px;
-    color: white;
+    color: #FECFDC;
     font-family: "Merriweather Sans", sans-serif;
-    font-style: oblique;
+    line-height: 1.4;
     text-decoration: none;
     font-weight: 700;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .a-logo img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 25px;
     vertical-align: middle;
     margin-right: 10px;
+    transform: rotate(90deg);
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
     font-family: "Inter", sans-serif;
-    margin: 0 15px;
+    margin: 2px 15px;
     padding: 8px 12px;
     border-radius: 6px;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
     font-weight: 600;
+    text-decoration: none;
+    color: #FECFDC;
 }
 
 nav a:hover {
-    color: #1cef55;
-    background-color: rgba(255, 255, 255, 0.08);
+    color: #FCA3BD;
+    background-color: rgba(115, 79, 92, 0.3);
     transform: translateY(-2px)
 }
 
 .icon-menu {
-    color: rgb(255, 255, 255);
+    color: #FECFDC;
+    /* Color del icono del menú, coherente con el texto */
     font-size: 2rem;
     transition: color 0.3s ease, transform 0.2s ease;
     margin-left: 20px;
@@ -189,11 +216,9 @@ nav a:hover {
 }
 
 .icon-menu:hover {
-    color: #1cef55;
+    color: #D95585;
     transform: scale(1.1);
 }
-
-/* --- Responsive Adjustments --- */
 
 @media (max-width: 768px) {
     header {
@@ -218,7 +243,6 @@ nav a:hover {
         text-align: left;
         padding: 10px 12px;
     }
-
 }
 
 @media (max-width: 480px) {
@@ -233,7 +257,7 @@ nav a:hover {
 
 /*Estilos de carousel*/
 .card {
-    background-color: #f5f6f5;
+    background-color: #f9f3f3;
     display: flex;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) 0 0 0 1px rgba(0, 0, 0, 0.05);
     margin: auto;
@@ -249,7 +273,6 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid #ccc;
     position: relative;
 }
 
@@ -282,6 +305,7 @@ nav a:hover {
     margin: 0 0 15px 0;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    color: #0B0607;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -298,8 +322,8 @@ nav a:hover {
 .card-info button {
     width: 150px;
     height: 45px;
-    background: linear-gradient(to right, #8B0000, #B22222);
-    color: #F5F5DC;
+    background: linear-gradient(to right, #030102, #221F20);
+    color: #FECFDC;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -307,19 +331,324 @@ nav a:hover {
     font-weight: bold;
     letter-spacing: 0.5px;
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     align-self: flex-start;
+}
+
+.card-info button:hover {
+    background: linear-gradient(to right, #221F20, #030102);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*Estilos de procedimiento*/
+.procedimiento__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    margin: 0 auto 60px auto;
+    padding: 20px 20px;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.procedimiento__card {
+    background-color: #f9f3f3;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.procedimiento__card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.procedimiento__card .card_image_wrapper {
+    flex-shrink: 0;
+    margin-right: 25px;
+    width: 40%;
+    max-width: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.procedimiento__card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.procedimiento__card:hover img {
+    transform: scale(1.1);
+}
+
+.procedimiento__card .card_text_content {
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.procedimiento__container h2 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #D95585;
+}
+
+.procedimiento__container p {
+    font-family: "Inter", sans-serif;
+    font-size: 1.05rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.procedimiento__title {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+@media (max-width: 992px) {
+    .procedimiento__title {
+        font-size: 2.5rem;
+        margin: 30px 0 40px 0;
+    }
+
+    .procedimiento__container {
+        grid-template-columns: 1fr;
+        /* Una sola columna en tabletas */
+        gap: 30px;
+        padding: 20px 15px;
+    }
+
+    .procedimiento__card {
+        flex-direction: column;
+        /* Apila imagen y texto verticalmente */
+        align-items: center;
+        /* Centra los ítems cuando están apilados */
+        max-width: 450px;
+        /* Limita el ancho de la tarjeta apilada */
+        padding: 20px;
+    }
+
+    .procedimiento__card .card-image-wrapper {
+        width: 80%;
+        /* Imagen más ancha cuando está apilada */
+        height: 200px;
+        margin-right: 0;
+        /* Elimina el margen derecho */
+        margin-bottom: 20px;
+        /* Añade margen inferior */
+    }
+
+    .procedimiento__card h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        /* Centra el título */
+        margin-bottom: 15px;
+    }
+
+    .procedimiento__card p {
+        font-size: 1rem;
+        text-align: center;
+        /* Centra el párrafo */
+    }
+}
+
+@media (max-width: 600px) {
+    .procedimiento__title {
+        font-size: 2rem;
+        margin: 25px 0 30px 0;
+    }
+
+    .procedimiento__container {
+        padding: 15px 10px;
+        gap: 25px;
+    }
+
+    .procedimiento__card {
+        max-width: 350px;
+        /* Más pequeña para móviles */
+        padding: 15px;
+    }
+
+    .procedimiento__card .card-image-wrapper {
+        height: 150px;
+        /* Altura de imagen más pequeña */
+        margin-bottom: 15px;
+    }
+
+    .procedimiento__card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .procedimiento__card p {
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos de factores */
+/* Estilos de factores */
+.factores__title {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 40px auto 30px auto;
+    color: #030102;
+    line-height: 1.2;
+}
+
+.factores__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 1220px;
+    gap: 20px;
+    margin: 20px auto 60px auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
+}
+
+.factores__card {
+    background-color: #f9f3f3;
+    border: 1px solid rgba(89, 71, 83, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    flex: 0 0 280px;
+    height: auto;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.factores__card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.factores__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.factores__card h2 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 1.4rem;
+    color: #D95585;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.factores__card p {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+    .factores__container {
+        gap: 15px;
+    }
+
+    .factores__card {
+        flex: 0 0 260px;
+    }
+
+    .factores__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .factores__container {
+        justify-content: flex-start;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .factores__title {
+        font-size: 2.2rem;
+    }
+
+    .factores__card {
+        flex: 0 0 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .factores__title {
+        font-size: 2rem;
+    }
+
+    .factores__card {
+        flex: 0 0 220px;
+        padding: 15px;
+    }
+
+    .factores__card img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .factores__card h2 {
+        font-size: 1.2rem;
+    }
+
+    .factores__card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .factores__title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .factores__card {
+        flex: 0 0 180px;
+    }
 }
 
 /*Estilos de precompra*/
 .precompra {
     display: flex;
     width: 90%;
-    background: #e1f8e7;
+    background-color: #f9f3f3;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    margin: 10px auto;
+    margin: 50px auto;
     max-width: 980px;
     align-items: stretch;
 }
@@ -344,14 +673,14 @@ nav a:hover {
     padding: 30px;
     box-sizing: border-box;
     border-radius: 0 12px 12px 0;
-    background-color: #e1f8e7;
+    background-color: #f9f3f3;
+    color: #030102;
 }
 
 .precompra__info h2 {
     font-family: 'Open Sans', sans-serif;
     font-size: 40px;
     margin: 0 0 15px 0;
-    color: #000000;
     line-height: 1.2;
     letter-spacing: -0.02em;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
@@ -378,6 +707,7 @@ nav a:hover {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
 }
 
 .precompra__info .quantity-control input {
@@ -395,8 +725,8 @@ nav a:hover {
 }
 
 .precompra__info .quantity-control input:focus {
-    border-color: #1cef55;
-    box-shadow: 0 0 8px rgba(30, 239, 85, 0.4);
+    border-color: #D95585;
+    box-shadow: 0 0 8px rgba(217, 85, 133, 0.4);
     outline: none;
     background-color: #ffffff;
 }
@@ -410,8 +740,8 @@ nav a:hover {
 }
 
 .precompra__info .action-buttons button {
-    background: linear-gradient(to right, #D4AF37, #E8C15A);
-    color: #3A0F17;
+    background: linear-gradient(to right, #221F20, #030102);
+    color: #FECFDC;
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
@@ -426,7 +756,6 @@ nav a:hover {
 }
 
 .precompra__info .action-buttons button:hover {
-    background: linear-gradient(to right, #E8C15A, #F5D780);
     transform: translateY(-3px);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
 }
@@ -467,16 +796,17 @@ nav a:hover {
 }
 
 .precompra__message {
-    background-color: #ffe0b2;
-    color: #e65100;
+    background-color: #030102;
+    color: #FECFDC;
     padding: 10px 15px;
     border-radius: 8px;
     margin-top: 20px;
     font-size: 0.95em;
     font-weight: 500;
     text-align: center;
-    border: 1px solid #e65100;
+    border: 1px solid #D95585;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Inter", sans-serif;
 }
 
 .precompra-status {
@@ -484,14 +814,13 @@ nav a:hover {
     padding: 50px;
     font-size: 1.5em;
     color: #5C1F26;
-    /* Color de vino oscuro */
     font-family: 'Inter', sans-serif;
 }
 
 .precompra-status--error {
     color: #D32F2F;
-    /* Rojo para errores */
     font-weight: bold;
+    font-family: "Inter", sans-serif;
 }
 
 
@@ -612,10 +941,12 @@ nav a:hover {
     grid-template-rows: repeat(1, 500px);
     gap: 150px;
     justify-content: center;
-    margin: 5px auto;
+    margin: 40px auto;
     padding: 10px 20px;
     max-width: 1300px;
     box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+
 }
 
 .vino__card {
@@ -623,18 +954,21 @@ nav a:hover {
     flex-direction: column;
     width: 300px;
     height: 480px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
+    box-shadow: 0 8px 20px rgba(255, 182, 182, 0.15),
+        0 0 0 1px rgba(54, 54, 54, 0.05);
+    border-radius: 10px 10px 0 0;
     overflow: hidden;
     background-color: #ffffff;
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #030102;
 }
 
 .vino__card:hover {
     transform: translateY(-8px) scale(1.01);
+    background: #030102;
+    color: #FECFDC;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25),
         0 0 0 2px rgba(0, 0, 0, 0.08);
 }
@@ -735,89 +1069,13 @@ nav a:hover {
     }
 }
 
-/*Estilos de procedimiento*/
-.procedimiento__container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 20px 0;
-}
 
-.procedimiento__container h2 {
-    font-family: "Merriweather Sans", sans-serif;
-    font-size: 1.3rem;
-}
-
-.procedimiento__container p {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-}
-
-.procedimiento__card {
-    background: #f3f4f3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 500px;
-    height: 200px;
-    margin: 0 auto;
-}
-
-.procedimiento__title {
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 10px 0;
-}
-
-/*Estilos de factores*/
-.factores__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 1220px;
-    gap: 70px;
-    margin: 10px auto;
-}
-
-.factores__title {
-    font-family: "Merriweather Sans", sans-serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 10px 0;
-}
-
-.factores__container h2 {
-    font-family: "Merriweather Sans", sans-serif;
-    font-size: 1.3rem;
-}
-
-.factores__container p {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-}
-
-.factores__card {
-    background: #f3f4f3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 500px;
-    height: 200px;
-    margin: 0 auto;
-}
 
 /*Spinner animation*/
 .loading-center-container p {
     font-family: "Merriweather Sans", sans-serif;
     font-size: 1.5rem;
-    color: #007bff;
+    color: #D95585;
 }
 
 .lds-ring,
@@ -886,7 +1144,7 @@ nav a:hover {
 }
 
 .lds-ring {
-    color: #007bff;
+    color: #D95585;
 }
 
 
@@ -960,7 +1218,7 @@ nav a:hover {
 .cart-page-container h1 {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 2.5rem;
-    color: #D4AF37;
+    color: #030102;
     text-align: center;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -968,25 +1226,28 @@ nav a:hover {
 
 .empty-cart-message {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
     padding: 20px;
-    border: 1px dashed #5C1F26;
+    border: 1px dashed #D95585;
     border-radius: 8px;
-    color: #5C1F26;
+    color: #D95585;
     margin-bottom: 30px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
 }
 
 .cart-message {
-    background-color: #ffe0b2;
-    color: #e65100;
+    background-color: #030102;
+    color: #FECFDC;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 0.95em;
     font-weight: 500;
     text-align: center;
-    border: 1px solid #e65100;
+    border: 1px solid #D95585;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Inter", sans-serif;
 }
 
 .cart-table {
@@ -996,17 +1257,18 @@ nav a:hover {
 }
 
 .cart-table thead th {
-    background-color: #3A0F17;
-    color: #F5F5DC;
+    background-color: #030102;
+    font-family: "Inter", sans-serif;
+    color: #FECFDC;
     padding: 15px 10px;
     text-align: left;
     font-size: 1.1em;
     font-weight: 600;
-    border-bottom: 2px solid #5C1F26;
+    border-bottom: 2px solid #FECFDC;
 }
 
 .cart-table tbody tr {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #FECFDC;
     transition: background-color 0.3s ease;
 }
 
@@ -1015,14 +1277,16 @@ nav a:hover {
 }
 
 .cart-table tbody tr:hover {
-    background-color: #f8f8f8;
+    background-color: #fbf4f4;
 }
 
 .cart-table td {
     padding: 15px 10px;
     vertical-align: middle;
     font-size: 1em;
-    color: #5C1F26;
+    color: #030102;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
 }
 
 .cart-item-details {
@@ -1046,8 +1310,8 @@ nav a:hover {
 }
 
 .quantity-controls button {
-    background-color: #D4AF37;
-    color: #3A0F17;
+    background-color: #030102;
+    color: #FECFDC;
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -1060,7 +1324,8 @@ nav a:hover {
 }
 
 .quantity-controls button:hover {
-    background-color: #E8C15A;
+    background-color: #FECFDC;
+    color: #030102;
     transform: translateY(-1px);
 }
 
@@ -1077,8 +1342,8 @@ nav a:hover {
 }
 
 .remove-item-button {
-    background-color: #B22222;
-    color: #F5F5DC;
+    background-color: #D95585;
+    color: #030102;
     border: none;
     padding: 8px 12px;
     border-radius: 6px;
@@ -1086,10 +1351,12 @@ nav a:hover {
     font-size: 0.9em;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Inter", sans-serif;
+    font-weight: 00;
 }
 
 .remove-item-button:hover {
-    background-color: #CD5C5C;
+    background-color: #FECFDC;
     transform: translateY(-1px);
 }
 
@@ -1106,13 +1373,16 @@ nav a:hover {
     font-weight: bold;
     margin-bottom: 30px;
     padding-top: 20px;
-    border-top: 2px solid #e0e0e0;
-    color: #3A0F17;
+    border-top: 2px solid #D95585;
+    color: #030102;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
 }
 
 .total-section span {
-    color: #5C1F26;
+    color: #030102;
     margin-left: 10px;
+
 }
 
 .checkout-buttons {
@@ -1136,12 +1406,13 @@ nav a:hover {
 }
 
 .checkout-button {
-    background: linear-gradient(to right, #1cef55, #28ff6f);
-    color: #000000;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(to right, #2a8d30, #31a238);
+    color: #fcfcfc;
 }
 
 .checkout-button:hover {
-    background: linear-gradient(to right, #28ff6f, #4dff8c);
+    background: linear-gradient(to right, #439540, #31a238);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
@@ -1152,8 +1423,9 @@ nav a:hover {
 }
 
 .clear-cart-button {
-    background: linear-gradient(to right, #8B0000, #B22222);
-    color: #F5F5DC;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(to right, #B22222, #CD5C5C);
+    color: #ffffff;
 }
 
 .clear-cart-button:hover {
@@ -1209,7 +1481,6 @@ nav a:hover {
     }
 
     .cart-table td::before {
-        /* Muestra el nombre de la columna como etiqueta */
         content: attr(data-label);
         font-weight: bold;
         margin-right: 10px;
@@ -1284,54 +1555,59 @@ nav a:hover {
 .form-page-layout {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    /* Cambiado a 'center' para intentar alinear verticalmente los centros */
     gap: 40px;
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1400px;
+    margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
     flex-wrap: wrap;
 }
 
+/* Estilos para el logo de la empresa */
 .form-logo {
-    width: 250px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 700px;
     height: auto;
     object-fit: contain;
-    margin-top: 30px;
-    flex-shrink: 0;
+    margin-top: 0;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     padding: 15px;
     background-color: #ffffff;
+    transform: rotate(90deg);
 }
 
+/* Estilos para el contenedor del formulario */
 .container__formCompra {
-    background-color: #F5F5DC;
-    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 700px;
+    background-color: #f9f3f3;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 700px;
     box-sizing: border-box;
-    flex-grow: 1;
 }
 
-.container__formCompra h3 {
+.container__formCompra h2 {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1.6rem;
-    color: #3A0F17;
+    color: #030102;
     margin-top: 25px;
     margin-bottom: 20px;
     text-align: center;
     position: relative;
 }
 
-.container__formCompra h3::after {
+.container__formCompra h2::after {
     content: '';
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #D4AF37;
+    background-color: #D95585;
     margin: 8px auto 0;
     border-radius: 2px;
 }
@@ -1352,7 +1628,7 @@ nav a:hover {
     border-radius: 8px;
     font-size: 0.95em;
     font-family: 'Inter', sans-serif;
-    color: #3A0F17;
+    color: #190E12;
     background-color: rgba(255, 255, 255, 0.8);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
@@ -1365,8 +1641,8 @@ nav a:hover {
 
 .grip__form input:focus,
 .grip__form select:focus {
-    border-color: #D4AF37;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+    border-color: #190E12;
+    box-shadow: 0 0 0 3px #D95585;
     outline: none;
     background-color: #fff;
 }
@@ -1395,6 +1671,8 @@ nav a:hover {
     text-align: center;
     border: 1px solid #ef9a9a;
     font-size: 0.85em;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
 }
 
 .message-success {
@@ -1406,6 +1684,8 @@ nav a:hover {
     text-align: center;
     border: 1px solid #a5d6a7;
     font-size: 0.85em;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
 }
 
 .btn__comprar,
@@ -1425,12 +1705,12 @@ nav a:hover {
 }
 
 .btn__comprar {
-    background: linear-gradient(to right, #8B0000, #B22222);
-    color: #F5F5DC;
+    background: linear-gradient(to right, #221F20, #030102);
+    color: #FECFDC;
 }
 
 .btn__comprar:hover {
-    background: linear-gradient(to right, #B22222, #CD5C5C);
+    background: linear-gradient(to right, #221F20, #030102);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
@@ -1471,8 +1751,8 @@ nav a:hover {
     transform: none;
 }
 
+/* Ajustes Responsivos */
 @media (max-width: 992px) {
-
     .form-page-layout {
         flex-direction: column;
         align-items: center;
@@ -1481,10 +1761,12 @@ nav a:hover {
 
     .form-logo {
         margin-top: 0;
+        max-width: 500px;
     }
 
     .container__formCompra {
         margin: 0;
+        max-width: 500px;
     }
 }
 

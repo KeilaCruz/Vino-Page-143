@@ -9,6 +9,7 @@ import VinosPages from './pages/VinosPages'
 import Registro from './components/Registro'
 import Login from './components/Login'
 import CartPage from './pages/CartPage'
+import Footer from './components/footer'
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/preCompra/:idVino' element={<PreCompra />} />
         <Route path='/carrito' element={<CartPage />} />
       </Routes>
+      <Footer />
     </>
   )
 }

@@ -139,7 +139,7 @@ a {
 header {
     display: flex;
     background-color: #030102;
-    padding: 0 20px;
+    padding: 6px 20px;
     align-items: center;
     z-index: 1000;
     position: sticky;
@@ -958,7 +958,7 @@ nav a:hover {
         0 0 0 1px rgba(54, 54, 54, 0.05);
     border-radius: 10px 10px 0 0;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #f9f3f3;
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -1179,6 +1179,7 @@ nav a:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: "Inter", sans-serif;
 }
 
 .dropdown-logout-button {
@@ -1209,7 +1210,7 @@ nav a:hover {
     max-width: 1000px;
     margin: 40px auto;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #f9f3f3;;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     color: #3A0F17;

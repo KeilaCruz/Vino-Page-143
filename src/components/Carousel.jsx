@@ -16,7 +16,7 @@ function Carousel() {
             <AliceCarousel
                 autoPlay
                 autoPlayStrategy="none"
-                autoPlayInterval={4000}
+                autoPlayInterval={7000}
                 animationDuration={1000}
                 animationType="slide"
                 disableButtonsControls

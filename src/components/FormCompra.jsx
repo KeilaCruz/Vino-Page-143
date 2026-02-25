@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../Auth/AuthProvider";
 import { useCart } from "../Auth/CartProvider";
 import { insertVenta } from "../backend/services";
-import logo from "../assets/logo.png";
+import logotipo_dorado from "../assets/logotipo_dorado.png";
 const estadosMexico = [
     "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas",
     "Chihuahua", "Ciudad de México", "Coahuila", "Colima", "Durango", "Estado de México",
@@ -228,9 +228,7 @@ function FormCompra() {
 
     return (
         <div className="form-page-layout">
-            <img src={logo} alt="Cosecha Joven Logo" className="form-logo" />
-
-
+            <img src={logotipo_dorado} alt="Cosecha Joven Logo" className="form-logo" />
             <form className="container__formCompra" onSubmit={handleSubmit}>
                 <h2>Datos del envío</h2>
                 <div className="grip__form">

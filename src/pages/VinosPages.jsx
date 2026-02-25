@@ -5,7 +5,6 @@ function VinosPages() {
         <>
             <h1 className="vinos__title">Vinos</h1>
             <ListVinos />
-            <Footer />
         </>
     )
 }

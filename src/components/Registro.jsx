@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom'
 function Registro() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [username, setNameUser]=useState("")
     const navigate = useNavigate();
 
     const handleRegistro = async (e) => {
         e.preventDefault();
-        const { data, error } = await registrarUsuario(email, password);
+        const { data, error } = await registrarUsuario(email, password, username);
         if (error) {
             console.error("Error al registrar usuario:", error.message);
             return;
@@ -22,6 +23,14 @@ function Registro() {
             <div className='registro__container'>
                 <h2>Crear cuenta</h2>
                 <form onSubmit={handleRegistro} className='registro__form'>
+                    <label>Nombre de usuario
+                         <input
+                            type="text"
+                            placeholder="Nombre de usuario"
+                            value={username}
+                            onChange={(e) => setNameUser(e.target.value)}
+                        />
+                    </label>
                     <label>Correo electrónico
                         <input
                             type="email"

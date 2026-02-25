@@ -9,10 +9,15 @@ export const getListVinos = async () => {
     }
 };
 
-export const registrarUsuario = async (email, password) => {
+export const registrarUsuario = async (email, password, username) => {
     const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
+        options: {
+           data: {
+             full_name: username, 
+           }
+        }
     });
     if (error) {
         console.error("Error al registrar usuario:", error.message);

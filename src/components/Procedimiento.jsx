@@ -8,7 +8,6 @@ function Procedimiento() {
     return (
         <>
             <h1 className="procedimiento__title">Etapas del proceso</h1>
-
             <div className="procedimiento__container">
                 <div className="procedimiento__card">
                     <div className='card_image_wrapper'>

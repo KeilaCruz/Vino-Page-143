@@ -8,7 +8,7 @@ function CardCarousel({ title, description, image }) {
                     <img src={image} />
                 </div>
                 <div className='card-info'>
-                    <h2>{title}</h2>
+                    <span className='card_title'>{title}</span>
                     <p>{description}</p>
                 </div>
             </div>

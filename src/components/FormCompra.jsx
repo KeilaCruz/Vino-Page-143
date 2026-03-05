@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../Auth/AuthProvider";
 import { useCart } from "../Auth/CartProvider";
 import { insertVenta } from "../backend/services";
-import logotipo_dorado from "../assets/logotipo_dorado.png";
+import logo_secundario from "../assets/logo_secundario.png";
 const estadosMexico = [
     "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas",
     "Chihuahua", "Ciudad de México", "Coahuila", "Colima", "Durango", "Estado de México",
@@ -228,7 +228,7 @@ function FormCompra() {
 
     return (
         <div className="form-page-layout">
-            <img src={logotipo_dorado} alt="Cosecha Joven Logo" className="form-logo" />
+            <img src={logo_secundario} alt="Cosecha Joven Logo" className="form-logo" />
             <form className="container__formCompra" onSubmit={handleSubmit}>
                 <h2>Datos del envío</h2>
                 <div className="grip__form">
@@ -297,14 +297,14 @@ function FormCompra() {
                     lineHeight: '1.4',
                     border: '1px solid #ddd'
                 }}>
-                    <div style={{ textAlign: 'center', marginBottom: '25px', borderBottom: '2px solid #6a0dad', paddingBottom: '10px' }}>
-                        <h1 style={{ margin: '0', fontSize: '24pt', color: '#6a0dad' }}>Cosecha Joven</h1>
+                    <div style={{ textAlign: 'center', marginBottom: '25px', borderBottom: '2px solid #', paddingBottom: '10px' }}>
+                        <h1 style={{ margin: '0', fontSize: '24pt', color: '#0F1A24' }}>Cosecha Joven</h1>
                         <p style={{ margin: '5px 0 0', fontSize: '12pt', color: '#555' }}>{COMPANY_DETAILS.slogan}</p>
                     </div>
 
                     <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between' }}>
                         <div style={{ width: '48%' }}>
-                            <h2 style={{ fontSize: '14pt', marginBottom: '10px', color: '#6a0dad' }}>Razón Social: {COMPANY_DETAILS.name}</h2>
+                            <h2 style={{ fontSize: '14pt', marginBottom: '10px', color: '#0F1A24' }}>Razón Social: {COMPANY_DETAILS.name}</h2>
                             <p style={{ margin: '0 0 5px 0' }}><strong>RFC:</strong> {COMPANY_DETAILS.rfc}</p>
                             <p style={{ margin: '0' }}><strong>Domicilio Oficial:</strong> {COMPANY_DETAILS.address}</p>
                         </div>
@@ -317,7 +317,7 @@ function FormCompra() {
 
                     <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '25px 0' }} />
 
-                    <h2 style={{ fontSize: '14pt', marginBottom: '10px', color: '#6a0dad' }}>Datos del Cliente</h2>
+                    <h2 style={{ fontSize: '14pt', marginBottom: '10px', color: '#0F1A24' }}>Datos del Cliente</h2>
                     <div style={{ marginBottom: '25px' }}>
                         <p style={{ margin: '0 0 5px 0' }}><strong>Nombre:</strong> {formData.nombre} {formData.apellido}</p>
                         <p style={{ margin: '0 0 5px 0' }}><strong>RFC:</strong> {formData.rfc || 'N/A'}</p>
@@ -326,10 +326,10 @@ function FormCompra() {
 
                     <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '25px 0' }} />
 
-                    <h2 style={{ fontSize: '14pt', marginBottom: '15px', color: '#6a0dad' }}>Concepto de Venta</h2>
+                    <h2 style={{ fontSize: '14pt', marginBottom: '15px', color: '#0F1A24' }}>Concepto de Venta</h2>
                     <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '30px' }}>
                         <thead>
-                            <tr style={{ backgroundColor: '#f0e6fa', borderBottom: '2px solid #6a0dad' }}>
+                            <tr style={{ backgroundColor: '#F8F4EC', borderBottom: '2px solid #0F1A24' }}>
                                 <th style={{ textAlign: 'center', padding: '10px', borderRight: '1px solid #ddd' }}>Cantidad</th>
                                 <th style={{ textAlign: 'left', padding: '10px', borderRight: '1px solid #ddd' }}>Descripción</th>
                                 <th style={{ textAlign: 'right', padding: '10px', borderRight: '1px solid #ddd' }}>Precio Unitario</th>
@@ -360,9 +360,9 @@ function FormCompra() {
                                         <td style={{ padding: '5px', textAlign: 'left' }}><strong>IVA ({IVA_RATE * 100}%):</strong></td>
                                         <td style={{ padding: '5px', textAlign: 'right' }}>$ {ivaParaFactura.toFixed(2)} MXN</td>
                                     </tr>
-                                    <tr style={{ backgroundColor: '#e0c9f7', borderTop: '2px solid #6a0dad', fontWeight: 'bold' }}>
-                                        <td style={{ padding: '10px', textAlign: 'left', fontSize: '14pt', color: '#6a0dad' }}>Total:</td>
-                                        <td style={{ padding: '10px', textAlign: 'right', fontSize: '14pt', color: '#6a0dad' }}>$ {totalParaFactura.toFixed(2)} MXN</td>
+                                    <tr style={{ backgroundColor: '#D4AF37', borderTop: '2px solid #0F1A24', fontWeight: 'bold' }}>
+                                        <td style={{ padding: '10px', textAlign: 'left', fontSize: '14pt', color: '#0F1A24' }}>Total:</td>
+                                        <td style={{ padding: '10px', textAlign: 'right', fontSize: '14pt', color: '#0F1A24' }}>$ {totalParaFactura.toFixed(2)} MXN</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -373,7 +373,7 @@ function FormCompra() {
                     </div>
 
                     <p style={{ marginTop: '40px', fontSize: '0.9em', textAlign: 'center', color: '#777', borderTop: '1px solid #eee', paddingTop: '15px' }}>
-                        Cosecha Joven - ¡Vinos de Calidad para Momentos Inolvidables!
+                        Cosecha Joven - ¡Tradición y vanguardia en cada gota!
                     </p>
                 </div>
             )}

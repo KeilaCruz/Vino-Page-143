@@ -9,6 +9,13 @@ function HomePage() {
             <Carousel />
             <Procedimiento />
             <InfoFactores />
+            <div className="parallax-banner">
+               <div className="parallax-overlay">
+                  <h3 className="parallax-text">
+                     Tradición y vanguardia en cada gota.
+                  </h3>
+               </div>
+             </div> 
             <Beneficios />
         </>
     )

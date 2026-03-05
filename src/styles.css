@@ -80,24 +80,20 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border-bottom: 2px solid rgba(243, 205, 78, 0.73);
 }
-
 .a-logo {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-
 .a-logo img {
     height: 40px;
     width: auto;
     margin-right: 15px;
     transition: transform 0.3s ease;
 }
-
 .a-logo:hover img {
     transform: scale(1.05);
 }
-
 .brand-text {
     font-family: var(--font-heading, sans-serif);
     font-size: 1.5rem;
@@ -108,14 +104,12 @@ header {
     background-clip: text;
     color: transparent;
 }
-
 nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
 }
-
 .icons-align {
     display: flex;
     align-items: center;
@@ -124,7 +118,6 @@ nav {
     margin: 0;
     padding: 0;
 }
-
 .icon-link-container {
     display: flex;
     align-items: center;
@@ -133,7 +126,6 @@ nav {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 .user-name-text {
     color: #FFFFFF;
     font-family: var(--font-body, sans-serif);
@@ -141,34 +133,27 @@ nav {
     font-weight: 400;
     letter-spacing: 1px;
 }
-
 a {
     text-decoration: none;
     font-family: var(--font-body, sans-serif);
 }
-
 .icon-menu {
     font-size: 1.6rem;
 }
-
 .icon-menu path {
     fill: url(#mancha-dorada);
     transition: filter 0.3s ease, fill 0.3s ease;
 }
-
 .icon-link-container:hover {
     transform: scale(1.1);
 }
-
 .icon-link-container:hover .icon-menu path {
     filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.7));
 }
-
 .user-menu-item {
     position: relative;
     padding: 10px 0;
 }
-
 .user-dropdown-content {
     position: absolute;
     top: 100%;
@@ -184,7 +169,6 @@ a {
     gap: 15px;
     z-index: 1001;
 }
-
 .dropdown-email-display {
     margin: 0;
     color: #E5E5E5;
@@ -195,7 +179,6 @@ a {
     padding-bottom: 10px;
     text-align: center;
 }
-
 .dropdown-logout-button {
     background: transparent;
     border: none;
@@ -209,15 +192,12 @@ a {
     gap: 10px;
     transition: color 0.3s ease;
 }
-
 .dropdown-logout-button:hover {
     color: #FFFFFF;
 }
-
 .icon-button-margin {
     font-size: 1rem;
 }
-
 @media (max-width: 768px) {
     header {
         padding: 15px 20px;
@@ -235,7 +215,6 @@ a {
         font-size: 1.4rem;
     }
 }
-
 @media (max-width: 480px) {
     header {
         padding: 12px 15px;
@@ -244,7 +223,6 @@ a {
         font-size: 1rem;
     }
 }
-
 /*Estilos de carousel*/
 .card {
     display: flex;
@@ -254,13 +232,11 @@ a {
     background-color: #0F1A24;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
 .container-image {
     width: 50%;
     height: 400px;
     overflow: hidden;
 }
-
 .container-image img {
     width: 100%;
     height: 100%;
@@ -269,11 +245,9 @@ a {
     display: block;
     transition: transform 0.8s ease;
 }
-
 .container-image:hover img {
     transform: scale(1.03);
 }
-
 .card-info {
     width: 50%;
     display: flex;
@@ -283,7 +257,6 @@ a {
     box-sizing: border-box;
     background-color: #0F1A24;
 }
-
 .card_title{
     font-family: var(--font-heading, sans-serif);
     font-size: 2.5rem;
@@ -294,7 +267,6 @@ a {
     background-clip: text;
     color: transparent;
 }
-
 .card-info p {
     font-family: var(--font-body, sans-serif);
     font-size: 1.6rem;
@@ -312,7 +284,6 @@ a {
         letter-spacing: 5px;
     }
 }
-
 @media (max-width: 768px) {
     .card {
         flex-direction: column;
@@ -332,6 +303,161 @@ a {
     .card-info h2 {
         font-size: 2rem;
         letter-spacing: 3px;
+    }
+}
+/* Procedimiento */
+.seccion-crema {
+    background-color: #F5F2EB;
+    padding: 80px 0;
+    width: 100%;
+}
+.procedimiento__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+    counter-reset: steps-counter;
+    position: relative;
+}
+.procedimiento__container::before {
+    content: '';
+    position: absolute;
+    top: 130px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color:#C2A068;
+    z-index: 0;
+    box-shadow: 0 0 5px rgba(15, 26, 36, 0.3);
+}
+.procedimiento__card {
+    position: relative;
+    background-color: transparent; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0;
+    height: 100%;
+    box-shadow: none; 
+    transition: transform 0.4s ease;
+    z-index: 1; 
+}
+.procedimiento__card:hover {
+       transform: translateY(-8px); 
+}
+.procedimiento__card::before {
+    counter-increment: steps-counter;
+    content: "0" counter(steps-counter);
+    position: static; 
+    margin-bottom: 15px;
+    font-family: var(--font-heading, serif);
+    font-size: 2.2rem; 
+    color: #C2A068; 
+    font-weight: 700;
+    background: transparent; 
+    padding: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+}
+.card_image_wrapper {
+    width: 160px;
+    height: 160px;
+    margin: 0 0 20px 0;
+    border-radius: 50%; 
+    border: 3px solid #C2A068;
+    padding: 6px; 
+    background-color: #F5F2EB; 
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08); 
+}
+.procedimiento__card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.procedimiento__card:hover img {
+    transform: scale(1.1); 
+}
+.card_text_content {
+   font-family: var(--font-body, 'Inter', sans-serif);
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    text-align: center; 
+}
+.procedimiento__card h2 {
+    font-family: var(--font-heading, 'Merriweather Sans', serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #11161A; 
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.procedimiento__card p {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #3A4047; 
+    margin: 0;
+}
+.procedimiento__title {
+    font-family: var(--font-heading, serif);
+    font-size: 2.8rem;
+    text-align: center;
+    color: #0F1A24;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+@media (max-width: 1024px) {
+    .procedimiento__container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 20px; 
+    }
+    .procedimiento__container::before {
+        display: none; 
+    }
+}
+@media (max-width: 600px) {
+    .procedimiento__container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+.parallax-banner {
+    background-image: url('https://herewewine.com/wp-content/uploads/2016/05/688874.jpg');
+    height: 400px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.parallax-text {
+    color: #F4EAD3; 
+    font-family: var(--font-heading, serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 165px 20px;
+    text-shadow: 2px 4px 15px rgba(235, 242, 132, 0.268);
+}
+@media (max-width: 768px) {
+    .parallax-banner {
+        height: 250px;
+        background-attachment: scroll; 
+    }
+    .parallax-text {
+        font-size: 1.8rem;
     }
 }
 /*Estilos registro*/
@@ -453,238 +579,192 @@ a {
         font-size: 1.8rem;
     }
 }
-
-/* Procedimiento */
-.procedimiento__container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    max-width: 1400px;
-    margin: 40px auto 80px;
-    padding: 0 20px;
-    counter-reset: steps-counter;
-}
-
-/* --- TARJETA (LA TIRA VERTICAL) --- */
-.procedimiento__card {
-    position: relative;
-    background-color: #f9f3f3;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    height: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-.procedimiento__card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* --- CONTENEDOR DE IMAGEN --- */
-.card_image_wrapper {
-    width: 100%;
-    height: 180px;
-    margin: 0;
-    border-radius: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.procedimiento__card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.procedimiento__card:hover img {
-    transform: scale(1.1);
-    /* Zoom suave */
-}
-
-/* --- CONTENIDO DE TEXTO --- */
-.card_text_content {
-    font-family: var(--font-body);
-    padding: 20px 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* --- TÍTULOS DE LAS TARJETAS --- */
-.procedimiento__card h2 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #250902;
-    margin: 0;
-    line-height: 1.3;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* --- PÁRRAFOS --- */
-.procedimiento__card p {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #000000;
-    margin: 0;
-    text-align: justify;
-}
-
-.procedimiento__title {
-    font-family: var(--font-heading);
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
-    color: #0B0607;
-    font-weight: 700;
-}
-
-/* --- DETALLE PRO: NÚMEROS DE PASOS (01, 02...) --- */
-.procedimiento__card::before {
-    counter-increment: steps-counter;
-    content: "0" counter(steps-counter);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ffffff;
-    color: #800E13;
-    font-family: var(--font-heading, sans-serif);
-    font-weight: 800;
-    font-size: 0.9rem;
-
-    padding: 4px 10px;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-/* --- RESPONSIVE: IMPORTANTE --- */
-/* En tablets bajamos a 3 columnas */
-@media (max-width: 1024px) {
-    .procedimiento__container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* En móviles bajamos a 1 sola columna (scroll vertical clásico) */
-@media (max-width: 600px) {
-    .procedimiento__container {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-    }
-
-    .card_image_wrapper {
-        height: 220px;
-        /* Fotos más grandes en móvil */
-    }
-}
-
 /* --- TÍTULO SECCIÓN --- */
-.factores__title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    text-align: center;
-    margin: 40px auto 30px;
-    color: #030102;
-    line-height: 1.2;
+.seccion-azul {
+    background-color: #0F1A24;
+    padding: 80px 0;
+    width: 100%;
 }
-
-/* --- TÍTULO SECCIÓN --- */
 .factores__title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
+    font-family: var(--font-heading, serif);
+   font-size: 2.8rem;
     text-align: center;
-    margin: 40px auto 30px;
-    color: #030102;
+    margin: 60px auto 40px;
+    color: #F5F2EB;
+    letter-spacing: 1px;
     line-height: 1.2;
+    font-weight: 400;
 }
-
-/* --- CONTENEDOR (CSS GRID) --- */
 .factores__container {
     display: grid;
-    /* MAGIA: Crea columnas automáticas de mínimo 260px. Si caben más, las pone. */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    /* Espacio uniforme entre tarjetas */
-
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 60px;
     padding-bottom: 20px;
 }
-
-/* --- TARJETA --- */
 .factores__card {
-    background-color: #f9f3f3;
-    border: 1px solid rgba(89, 71, 83, 0.2);
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-
-    /* Flex interno para alinear contenido */
+  background-color: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(194, 160, 104, 0.3); 
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    padding: 30px 20px;
-
-    /* ESTO GARANTIZA QUE TODAS TENGAN EL MISMO TAMAÑO VISUAL */
+    padding: 40px 20px;
     height: 100%;
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
-
+.factores__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #C2A068; 
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
 .factores__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: #C2A068;
 }
-
-/* --- IMAGEN ICONO --- */
-.factores__card img {
-    width: 60px;
-    height: 60px;
+.factores__card:hover::before {
+    transform: scaleX(1); 
+}.factores__card img {
+    width: 65px;
+    height: 65px;
     object-fit: contain;
-    /* Asegura que el icono no se deforme */
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(439%) hue-rotate(3deg) brightness(89%) contrast(86%);
 }
-
-/* --- TEXTOS --- */
+.factores__card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(439%) hue-rotate(3deg) brightness(89%) contrast(86%) drop-shadow(0 0 8px rgba(194, 160, 104, 0.8));
+}
 .factores__card h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading, serif);
     font-size: 1.4rem;
-    color: #0B0607;
+    color: #C2A068; 
     margin: 0 0 15px 0;
     line-height: 1.3;
+    font-weight: 700;
 }
-
 .factores__card p {
-    font-family: var(--font-body);
+    font-family: var(--font-body, sans-serif);
     font-size: 0.95rem;
-    color: #1A1A1A;
+    color: #E0E0E0; 
     line-height: 1.6;
     margin: 0;
 }
-
-/* --- RESPONSIVE SIMPLIFICADO --- */
-/* Solo necesitamos ajustar el tamaño del texto en móviles, el layout se ajusta solo */
 @media (max-width: 768px) {
     .factores__title {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
-
     .factores__card {
-        padding: 20px;
+        padding: 30px 20px;
     }
 }
-
+/*Beneficios*/
+.seccion-beneficios {
+    background-color: #F5F2EB; /* Fondo Crema */
+    padding: 80px 0;
+    width: 100%;
+}
+.beneficios__title {
+    font-family: var(--font-heading, serif);
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 60px auto 40px;
+    color: #0F1A24;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+.beneficios__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding-bottom: 20px;
+}
+.beneficios__card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 26, 36, 0.08); 
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+.beneficios__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #C2A068; 
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+.beneficios__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(15, 26, 26, 0.08);
+    border-color: #C2A068;
+}
+.beneficios__card:hover::before {
+    transform: scaleX(1); 
+}.beneficios__card img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(439%) hue-rotate(3deg) brightness(89%) contrast(86%);
+}
+.beneficios__card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) saturate(100%) invert(73%) sepia(59%) saturate(439%) hue-rotate(3deg) brightness(89%) contrast(86%) drop-shadow(0 0 8px rgba(194, 160, 104, 0.8));
+}
+.beneficios__card h2 {
+    font-family: var(--font-heading, serif);
+    font-size: 1.4rem;
+    color: #0F1A24; 
+    margin: 0 0 15px 0;
+    line-height: 1.3;
+    font-weight: 700;
+}
+.beneficios__card p {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.95rem;
+    color: #3A4047; 
+    line-height: 1.6;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .beneficios__title {
+        font-size: 2.2rem;
+    }
+    .beneficios__card {
+        padding: 30px 20px;
+    }
+}
 /*Estilos de precompra*/
 .precompra {
     display: flex;
@@ -1375,7 +1455,7 @@ a {
 
 .form-logo {
     flex: 0 1 35%;
-    min-width: 280px;
+    min-width: 380px;
     height: auto;
     object-fit: contain;
     margin-top: 0;

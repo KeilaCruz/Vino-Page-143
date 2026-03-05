@@ -5,7 +5,8 @@ import tiempo from '../assets/tiempo.png';
 function InfoFactores() {
     return (
         <>
-            <h1 className="factores__title">Factores claves</h1>
+        <section className='seccion-azul'>
+          <h1 className="factores__title">Factores claves</h1>
             <div className="factores__container">
                 <div className="factores__card">
                     <img src={temperatura_agua} alt="Temperatura del agua" />
@@ -28,6 +29,7 @@ function InfoFactores() {
                     <p>Puede durar entre 5 y 21 días, dependiendo del volumen del mosto</p>
                 </div>
             </div>
+        </section> 
         </>
     )
 }
